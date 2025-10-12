@@ -1,8 +1,10 @@
+---
+---
+
 <section class="hero">
-  <div class="container">
-    <div class="icon-list">
-      <span class="icon-pill">
-        <!-- bullseye -->
+  <div class="container hero-inner">
+    <ul class="icon-list">
+      <li class="icon-pill">
         <svg viewBox="0 0 496 512" aria-hidden="true"
           ><path
             fill="currentColor"
@@ -10,9 +12,8 @@
           ></path></svg
         >
         Long-term Focus
-      </span>
-      <span class="icon-pill">
-        <!-- rocket -->
+      </li>
+      <li class="icon-pill">
         <svg viewBox="0 0 512 512" aria-hidden="true"
           ><path
             fill="currentColor"
@@ -20,9 +21,8 @@
           ></path></svg
         >
         Out performance
-      </span>
-      <span class="icon-pill">
-        <!-- shield -->
+      </li>
+      <li class="icon-pill">
         <svg viewBox="0 0 512 512" aria-hidden="true"
           ><path
             fill="currentColor"
@@ -30,22 +30,22 @@
           ></path></svg
         >
         Backtested
-      </span>
-    </div>
+      </li>
+    </ul>
 
-    <h1>
+    <h1 class="hero-title">
       A smarter way to HODL <span class="gradient-underline"></span>
     </h1>
 
-    <p class="lede">
+    <p class="hero-lede">
       The goal is for our HODL Alpha portfilio to out perform traditional Buy &amp; Hold strategies
       and deliver exceptional long-term growth while still maintaining the same core principals as a
       Hodler.
     </p>
 
-    <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top: 18px;">
-      <a href="#pricing" class="button button--primary">Become a member</a>
-      <a href="#insights" class="button button--outline">View Sample Backtest Results</a>
+    <div class="hero-cta">
+      <a href="/#pricing" class="btn btn--accent">Become a member</a>
+      <a href="/#insights" class="btn btn--ghost">View Sample Backtest Results</a>
     </div>
   </div>
 </section>
@@ -53,67 +53,67 @@
 <style>
   .hero {
     position: relative;
-    background: url('https://hodlalpha.io/wp-content/uploads/2024/01/digital-deco-back-1.png') top
-      center / cover no-repeat;
   }
-  .hero .container {
-    padding-top: clamp(80px, 12vw, 160px);
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: clamp(-280px, -23vw, -180px) 0 0 0;
+    background-image:
+      linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
+      url('https://hodlalpha.io/wp-content/uploads/2024/01/digital-deco-back-1.png');
+    background-position:
+      center,
+      top center;
+    background-size: cover, 135%;
+    background-repeat: no-repeat;
+    z-index: -1;
+  }
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: clamp(20px, 2vw, 40px);
     padding-bottom: clamp(20px, 6vw, 60px);
   }
-
-  .hero h1 {
-    font-family: var(--font-headings);
+  .hero-title {
     font-size: clamp(28px, 5vw, 70px);
     line-height: 1.2;
     letter-spacing: -0.02em;
+    margin: 0;
   }
-  .gradient-underline {
-    position: relative;
-    display: inline-block;
-  }
-  .gradient-underline::after {
-    content: '';
-    display: block;
-    height: 6px;
-    margin-top: 0.18em;
-    border-radius: 999px;
-    background: linear-gradient(90deg, var(--accent), #ffd700);
-    background-size: 200% 100%;
-    animation: slide 3s linear infinite;
-  }
-  @keyframes slide {
-    to {
-      background-position: 200% 0;
-    }
-  }
-
-  .hero .lede {
+  .hero-lede {
     max-width: 760px;
-    font-size: clamp(18px, 2.2vw, 25px);
-    color: var(--text);
-    opacity: 0.95;
+    font-size: clamp(18px, 2.2vw, 24px);
   }
-
-  /* Icon list (hero) */
-  .icon-list {
+  .hero-cta {
     display: flex;
-    gap: 18px;
+    gap: 24px;
     flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: clamp(18px, 3vw, 30px);
+    margin-top: 36px;
+  }
+  .icon-list {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 0 clamp(12px, 3vw, 24px) 0;
+    padding: 0;
+    list-style: none;
   }
   .icon-pill {
     display: flex;
     align-items: center;
     gap: 8px;
     text-transform: uppercase;
-    font-size: 13px;
-    font-weight: 600;
+    font-size: 1rem;
+    font-weight: 700;
     color: var(--accent);
     padding: 8px 10px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--border);
     border-radius: 999px;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.03);
   }
   .icon-pill svg {
     width: 18px;

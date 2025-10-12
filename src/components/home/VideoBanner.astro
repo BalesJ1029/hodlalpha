@@ -1,0 +1,29 @@
+---
+---
+
+<section class="video-band section-tight" aria-label="Background video">
+  <video autoplay muted loop playsinline poster="/video-fallback.jpg">
+    <source src="https://hodlalpha.io/wp-content/uploads/2024/03/Decentralized-new.mp4" type="video/mp4" />
+  </video>
+  <div class="overlay container"></div>
+</section>
+
+<style>
+  .video-band {
+    position: relative;
+    min-height: 300px;
+    overflow: hidden;
+  }
+  .video-band video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(110%);
+  }
+  .video-band .overlay {
+    position: relative;
+    z-index: 1;
+  }
+</style>
