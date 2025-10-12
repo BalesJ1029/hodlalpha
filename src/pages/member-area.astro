@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import RecommendationsTable from "../components/RecommendationsTable.astro";
+import { recommendations } from "../data/recommnedations";
+
+// Where the form posts. Defaults to your production WP if .env is missing.
+const WP_URL = import.meta.env.PUBLIC_WP_URL ?? "https://hodlalpha.io";
+const redirectTo = "/member-area/";
+---
+<BaseLayout title="Member Area – HODL Alpha">
+  <Header />
+
+  <main class="mt-0">
+    <RecommendationsTable title="HODL Classic" rows={recommendations} />
+  </main>
+
+  <footer class="container" style="padding-block:56px;">
+    <hr style="border:0;border-top:1px solid var(--border);opacity:.3;margin-bottom:16px" />
+    <p class="muted">HODL Alpha © {new Date().getFullYear()}. All rights reserved.</p>
+  </footer>
+</BaseLayout>

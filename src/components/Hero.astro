@@ -1,0 +1,122 @@
+<section class="hero">
+  <div class="container">
+    <div class="icon-list">
+      <span class="icon-pill">
+        <!-- bullseye -->
+        <svg viewBox="0 0 496 512" aria-hidden="true"
+          ><path
+            fill="currentColor"
+            d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 432c-102 0-184-82-184-184S146 72 248 72s184 82 184 184-82 184-184 184zm0-312c-71 0-128 57-128 128s57 128 128 128 128-57 128-128-57-128-128-128zm0 192c-35 0-64-29-64-64s29-64 64-64 64 29 64 64-29 64-64 64z"
+          ></path></svg
+        >
+        Long-term Focus
+      </span>
+      <span class="icon-pill">
+        <!-- rocket -->
+        <svg viewBox="0 0 512 512" aria-hidden="true"
+          ><path
+            fill="currentColor"
+            d="M505.1 19.1c-1.2-5.5-6.7-11-12.2-12.2C460.7 0 435.5 0 410.4 0 307.2 0 245.3 55.2 199.1 128H94.8c-16.3 0-35.6 11.9-42.9 26.5L2.5 253.3A28.4 28.4 0 0 0 0 264a24 24 0 0 0 24 24h103.8l-22.5 22.5c-11.4 11.4-13 32.3 0 45.3l50.9 50.9c11.2 11.2 32.2 13.2 45.3 0l22.5-22.5V488a24 24 0 0 0 24 24 28.6 28.6 0 0 0 10.7-2.5l98.7-49.4c14.6-7.3 26.5-26.5 26.5-42.9V312.8c72.6-46.3 128-108.4 128-211.1 0-25.2 0-50.4-7-82.6zM384 168a40 40 0 1 1 40-40 40 40 0 0 1-40 40z"
+          ></path></svg
+        >
+        Out performance
+      </span>
+      <span class="icon-pill">
+        <!-- shield -->
+        <svg viewBox="0 0 512 512" aria-hidden="true"
+          ><path
+            fill="currentColor"
+            d="m466.5 83.7-192-80a48.1 48.1 0 0 0-36.9 0l-192 80C27.7 91.1 16 108.6 16 128c0 198.5 114.5 335.7 221.5 380.3a48.9 48.9 0 0 0 36.9 0C360.1 472.6 496 349.3 496 128c0-19.4-11.7-36.9-29.5-44.3zM256.1 446.3V65.3l175.9 73.3c-3.3 151.4-82.1 261.1-175.8 307.7z"
+          ></path></svg
+        >
+        Backtested
+      </span>
+    </div>
+
+    <h1>
+      A smarter way to HODL <span class="gradient-underline"></span>
+    </h1>
+
+    <p class="lede">
+      The goal is for our HODL Alpha portfilio to out perform traditional Buy &amp; Hold strategies
+      and deliver exceptional long-term growth while still maintaining the same core principals as a
+      Hodler.
+    </p>
+
+    <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top: 18px;">
+      <a href="#pricing" class="button button--primary">Become a member</a>
+      <a href="#insights" class="button button--outline">View Sample Backtest Results</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    background: url('https://hodlalpha.io/wp-content/uploads/2024/01/digital-deco-back-1.png') top
+      center / cover no-repeat;
+  }
+  .hero .container {
+    padding-top: clamp(80px, 12vw, 160px);
+    padding-bottom: clamp(20px, 6vw, 60px);
+  }
+
+  .hero h1 {
+    font-family: var(--font-headings);
+    font-size: clamp(28px, 5vw, 70px);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+  .gradient-underline {
+    position: relative;
+    display: inline-block;
+  }
+  .gradient-underline::after {
+    content: '';
+    display: block;
+    height: 6px;
+    margin-top: 0.18em;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--accent), #ffd700);
+    background-size: 200% 100%;
+    animation: slide 3s linear infinite;
+  }
+  @keyframes slide {
+    to {
+      background-position: 200% 0;
+    }
+  }
+
+  .hero .lede {
+    max-width: 760px;
+    font-size: clamp(18px, 2.2vw, 25px);
+    color: var(--text);
+    opacity: 0.95;
+  }
+
+  /* Icon list (hero) */
+  .icon-list {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: clamp(18px, 3vw, 30px);
+  }
+  .icon-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    padding: 8px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.3);
+  }
+  .icon-pill svg {
+    width: 18px;
+    height: 18px;
+  }
+</style>
