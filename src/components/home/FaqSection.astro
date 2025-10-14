@@ -1,9 +1,173 @@
 ---
+const faqs = [
+  {
+    question: 'What makes HODL Alpha different from simple dollar-cost averaging?',
+    answer:
+      'Our models time entries using quantified momentum and mean-reversion signals. Instead of buying on a fixed schedule, alerts trigger only when probabilities favor asymmetric upside, historically beating passive DCA across multiple market cycles.',
+  },
+  {
+    question: 'How frequently should I expect trade alerts and portfolio updates?',
+    answer:
+      'Depending on the strategy tier you follow, you can expect between 8 and 50 entries per year. Every alert is paired with a full context breakdown and is synced instantly to the live model portfolio so you can mirror execution with confidence.',
+  },
+  {
+    question: 'Do I need advanced trading experience to follow the strategies?',
+    answer:
+      'No. Each alert is delivered with clear sizing guidance, execution tips, and the current thesis. Members often automate entries with their preferred broker, but you can also manage them manually with step-by-step instructions.',
+  },
+  {
+    question: 'Can I cancel my membership if the fit is not right?',
+    answer:
+      'Yes. Plans are month-to-month with no lock-ins. If you ever feel the service is not creating value, you can cancel in a couple of clicks inside the member portal—your access will remain active until the end of the billing cycle.',
+  },
+  {
+    question: 'Which assets do the strategies currently focus on?',
+    answer:
+      'We publish entries for our flagship Bitcoin accumulation strategy today, with Ethereum and multi-asset rotations on the roadmap. Members are always notified before new portfolios go live so you can plan your allocation in advance.',
+  },
+];
 ---
 
-<section id="faq" class="section">
+<section id="faq" class="section faq-section">
   <div class="container">
-    <div class="badge">FAQs</div>
-    <p class="muted">Add your FAQ/accordion here.</p>
+    <div class="faq-header">
+      <h2 class="h2">
+        Answers to your <span class="gradient-underline">most common questions</span>
+      </h2>
+      <p class="muted">
+        Understand exactly how membership works, how signals are delivered, and how you can
+        integrate the strategies into your workflow.
+      </p>
+    </div>
+
+    <div class="faq-accordion">
+      {
+        faqs.map((faq) => (
+          <details class="faq-item">
+            <summary>
+              <span>{faq.question}</span>
+              <span class="faq-toggle" aria-hidden="true" />
+            </summary>
+            <div class="faq-answer">
+              <p class="muted">{faq.answer}</p>
+            </div>
+          </details>
+        ))
+      }
+    </div>
   </div>
 </section>
+
+<style>
+  .faq-section {
+    position: relative;
+    overflow: hidden;
+    margin-top: -100px;
+  }
+  .faq-section::before {
+    content: '';
+    position: absolute;
+    inset: 10% -40% auto;
+    height: 60%;
+    pointer-events: none;
+  }
+  .faq-section .container {
+    position: relative;
+    z-index: 1;
+  }
+  .faq-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto clamp(36px, 4vw, 56px);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .faq-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(16px, 2vw, 20px);
+    max-width: 880px;
+    margin: 0 auto;
+  }
+  .faq-item {
+    border-radius: var(--radius);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(6px);
+    padding: clamp(18px, 2vw, 24px) clamp(16px, 2vw, 24px);
+    transition:
+      border-color 0.3s ease,
+      background 0.3s ease,
+      transform 0.3s ease;
+  }
+  .faq-item:hover {
+    border-color: rgba(241, 205, 112, 0.4);
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-2px);
+  }
+  .faq-item summary {
+    font-weight: 600;
+    font-size: 1.02rem;
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    position: relative;
+  }
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq-toggle {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+  .faq-toggle::before,
+  .faq-toggle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 999px;
+    transform: translate(-50%, -50%);
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
+  }
+  .faq-toggle::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  .faq-item[open] {
+    border-color: rgba(241, 205, 112, 0.55);
+    background: rgba(255, 255, 255, 0.08);
+  }
+  .faq-item[open] .faq-toggle::after {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(90deg) scaleX(0);
+  }
+  .faq-answer {
+    margin-top: clamp(12px, 1.5vw, 16px);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: clamp(14px, 1.6vw, 18px);
+    line-height: 1.7;
+  }
+  .faq-answer p {
+    margin: 0;
+  }
+  @media (max-width: 640px) {
+    .faq-item summary {
+      font-size: 1rem;
+    }
+    .faq-toggle::before,
+    .faq-toggle::after {
+      width: 16px;
+    }
+  }
+</style>

@@ -1,9 +1,267 @@
 ---
+const plans = [
+  {
+    name: 'Signal Feed',
+    price: '$79',
+    cadence: 'per month',
+    description:
+      'For self-directed investors who want quantified signals and context without the extra frills.',
+    features: [
+      'Bitcoin & Ethereum entries with quantified conviction scores',
+      'Proactive risk alerts that flag chop zones before they trigger',
+      'Weekly macro rundown summarizing catalysts we are tracking',
+      'Archive access to every play and post-trade debrief since launch',
+    ],
+    cta: 'Join Signal Feed',
+    href: '/member-area',
+  },
+  {
+    name: 'Full Stack Membership',
+    price: '$149',
+    cadence: 'per month',
+    description:
+      'Our most popular plan for active accumulators who want the full research workflow and tooling.',
+    features: [
+      'Everything in Signal Feed, plus the live model portfolio with sizing signals',
+      'Automated position tracking templates that sync with your broker',
+      'Bi-weekly desk calls with Q&A and strategy deep dives',
+      'Early access to new rotational strategies before they go public',
+    ],
+    cta: 'Start Full Stack',
+    href: '/member-area',
+    highlight: true,
+    badge: 'Most Popular',
+  },
+  {
+    name: 'Institutional Desk',
+    price: "Let's talk",
+    cadence: 'custom program',
+    description:
+      'For funds and high-net-worth desks that need dedicated research, bespoke risk layers, and compliance-friendly delivery.',
+    features: [
+      'Dedicated quant analyst coverage with shared playbooks',
+      'Custom risk overlays and mandate-specific guardrails',
+      'Programmatic API access to signal feed and backtests',
+      'Private Slack channel for always-on collaboration',
+    ],
+    cta: 'Book a call',
+    href: 'mailto:team@hodlalpha.com',
+  },
+];
 ---
 
-<section id="pricing" class="section">
+<section id="pricing" class="section pricing-section">
   <div class="container">
-    <div class="badge">Pricing</div>
-    <p class="muted">Your pricing grid / checkout goes here.</p>
+    <header class="pricing-header">
+      <div class="badge">Pricing</div>
+      <h2 class="h2">Pick the plan that matches your conviction</h2>
+      <p class="muted">
+        Every membership starts with a 14-day satisfaction guarantee. Upgrade, downgrade, or cancel
+        whenever you want—no lock-ins or hidden fees.
+      </p>
+    </header>
+
+    <div class="pricing-grid grid grid-3">
+      {
+        plans.map((plan) => (
+          <article class:list={{ 'pricing-card': true, 'pricing-card--featured': plan.highlight }}>
+            {plan.badge && <span class="plan-badge">{plan.badge}</span>}
+
+            <div class="pricing-top">
+              <h3 class="h3">{plan.name}</h3>
+              <p class="pricing-price">
+                <span class="pricing-amount">{plan.price}</span>
+                <span class="pricing-cadence muted">{plan.cadence}</span>
+              </p>
+              <p class="muted pricing-description">{plan.description}</p>
+            </div>
+
+            <ul class="pricing-features clean">
+              {plan.features.map((feature) => (
+                <li>
+                  <span class="checkmark" aria-hidden="true" />
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+
+            <a
+              class:list={{
+                btn: true,
+                'btn--accent': plan.highlight,
+                'btn--ghost': !plan.highlight,
+              }}
+              href={plan.href}
+            >
+              {plan.cta}
+            </a>
+          </article>
+        ))
+      }
+    </div>
+
+    <p class="pricing-note muted">
+      Need more seats or a tailored scope? Talk to us and we will build a package that fits your
+      desk.
+    </p>
   </div>
 </section>
+
+<style>
+  .pricing-section {
+    position: relative;
+  }
+
+  .pricing-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto clamp(36px, 4vw, 56px);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .pricing-grid {
+    align-items: stretch;
+  }
+
+  .pricing-card {
+    position: relative;
+    padding: clamp(24px, 2.8vw, 36px);
+    border-radius: var(--radius);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(10, 14, 24, 0.7);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(20px, 2.6vw, 28px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+    transition:
+      border-color 0.3s ease,
+      transform 0.3s ease,
+      background 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .pricing-card:hover {
+    border-color: rgba(241, 205, 112, 0.4);
+    transform: translateY(-4px);
+    background: rgba(16, 20, 30, 0.85);
+    box-shadow: 0 22px 44px rgba(10, 8, 0, 0.32);
+  }
+
+  .pricing-card--featured {
+    border-color: rgba(241, 205, 112, 0.65);
+    background: linear-gradient(
+      145deg,
+      rgba(255, 203, 112, 0.08),
+      rgba(10, 14, 24, 0.88) 36%,
+      rgba(10, 14, 24, 0.95)
+    );
+  }
+
+  .plan-badge {
+    position: absolute;
+    top: clamp(-12px, 0vw, -12px);
+    right: clamp(12px, 0vw, 12px);
+    background: linear-gradient(120deg, var(--accent), var(--accent-hover));
+    color: #05070e;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 6px 12px;
+    border-radius: 999px;
+  }
+
+  .pricing-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    margin: 16px 0 10px;
+  }
+
+  .pricing-amount {
+    font-size: clamp(2.2rem, 1.6rem + 2vw, 3rem);
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .pricing-cadence {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .pricing-description {
+    line-height: 1.6;
+  }
+
+  .pricing-features {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .pricing-features li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: start;
+    gap: 12px;
+    font-size: 0.98rem;
+    line-height: 1.5;
+  }
+
+  .checkmark {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: rgba(241, 205, 112, 0.18);
+    border: 1px solid rgba(241, 205, 112, 0.45);
+    position: relative;
+    margin-top: 2px;
+  }
+
+  .checkmark::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border-right: 2px solid var(--accent);
+    border-bottom: 2px solid var(--accent);
+    transform: rotate(45deg);
+  }
+
+  .pricing-card .btn {
+    margin-top: auto;
+    text-align: center;
+    width: 100%;
+  }
+
+  .pricing-note {
+    text-align: center;
+    margin: clamp(36px, 4vw, 52px) auto 0;
+    max-width: 640px;
+  }
+
+  @media (max-width: 1024px) {
+    .plan-badge {
+      position: static;
+      align-self: flex-start;
+      margin-bottom: 12px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .pricing-grid {
+      gap: clamp(20px, 6vw, 28px);
+    }
+
+    .pricing-card {
+      padding: clamp(20px, 6vw, 28px);
+    }
+
+    .pricing-amount {
+      font-size: clamp(2rem, 1.7rem + 2vw, 2.6rem);
+    }
+  }
+</style>
