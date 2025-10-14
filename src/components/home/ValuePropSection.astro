@@ -3,30 +3,26 @@
 ---
 
 <section class="section">
-  <div class="container vp-grid">
-    <div
-      class="card"
-      style="padding:0; overflow:hidden; aspect-ratio:16/9; border:1px solid var(--border); background:var(--surface);"
-    >
-      <iframe
-        title="HODL Alpha overview"
-        width="100%"
-        height="100%"
-        src="https://www.youtube.com/embed/JmEoVDts7oY?start=378&rel=0&modestbranding=1"
-        allow="autoplay; encrypted-media; picture-in-picture"
-        allowfullscreen
-        style="border:0; display:block;"></iframe>
-    </div>
+  <div class="container">
+    <div class="vp-grid">
+      <div class="card vp-video">
+        <iframe
+          title="HODL Alpha overview"
+          width="100%"
+          height="100%"
+          src="https://www.youtube.com/embed/JmEoVDts7oY?start=378&rel=0&modestbranding=1"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
 
-    <div class="card card-accent">
-      <div class="badge">Result-driven approach</div>
-      <p class="muted content" style="margin-top:12px;">
-        We help Bitcoin HODLers maximize their long-term returns by optimizing every buy entry.
-        Instead of changing your HODL strategy, we enhance it by showing you how to time your buys
-        smarter. This allows your portfolio to compound more efficiently. Simply put, if you’re
-        committed to HODLing, and looking to get the most out of your strategy — we are the edge
-        you’ve been missing.
-      </p>
+      <div class="card card-accent">
+        <span class="section-eyebrow">Result-driven approach</span>
+        <p class="muted content">
+          We help Bitcoin HODLers maximize long-term returns by optimizing every buy entry. Instead
+          of changing your strategy, we enhance it by showing you when conviction is strongest so
+          your capital compounds more efficiently.
+        </p>
+      </div>
     </div>
   </div>
 </section>
@@ -36,19 +32,34 @@
     display: grid;
     gap: clamp(16px, 2.5vw, 24px);
     grid-template-columns: 1.2fr 1fr;
+    margin-top: clamp(24px, 3vw, 40px);
   }
-  @media (max-width: 1024px) {
-    .vp-grid {
-      grid-template-columns: 1fr;
-    }
+  .vp-video {
+    padding: 0;
+    overflow: hidden;
+    background: var(--surface);
+    min-height: 300px;
+    max-width: 700px;
+  }
+  .vp-video iframe {
+    border: 0;
+    display: block;
   }
   .card-accent {
     border: 1px solid var(--border);
     background:
       linear-gradient(0deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.02)), var(--surface);
-    padding: 24px;
+    padding: clamp(24px, 3vw, 32px);
     border-radius: var(--radius);
     min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(14px, 2vw, 20px);
+  }
+  @media (max-width: 1024px) {
+    .vp-grid {
+      grid-template-columns: 1fr;
+    }
   }
   .content {
     font-size: 1.275rem;

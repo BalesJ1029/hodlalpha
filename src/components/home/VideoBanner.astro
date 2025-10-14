@@ -1,11 +1,20 @@
 ---
+
 ---
 
 <section class="video-band section-tight" aria-label="Background video">
   <video autoplay muted loop playsinline poster="/video-fallback.jpg">
-    <source src="https://hodlalpha.io/wp-content/uploads/2024/03/Decentralized-new.mp4" type="video/mp4" />
+    <source
+      src="https://hodlalpha.io/wp-content/uploads/2024/03/Decentralized-new.mp4"
+      type="video/mp4"
+    />
   </video>
-  <div class="overlay container"></div>
+  <div class="overlay container">
+    <header class="section-heading video-band__heading">
+      <span class="section-eyebrow">Always building</span>
+      <h2 class="section-title">New strategies are <br />always in the lab</h2>
+    </header>
+  </div>
 </section>
 
 <style>
@@ -25,5 +34,16 @@
   .video-band .overlay {
     position: relative;
     z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    text-align: center;
+  }
+  .video-band__heading {
+    background: rgba(11, 10, 10, 0.52);
+    padding: clamp(24px, 4vw, 36px);
+    border-radius: calc(var(--radius) * 1.5);
+    backdrop-filter: blur(6px);
   }
 </style>

@@ -3,13 +3,19 @@
 
 <section id="contact" class="section band">
   <div class="container contact-grid">
-    <div>
-      <div class="badge">Contact Us</div>
-      <h2 class="h2" style="margin-top:6px;">Connect With HODL Alpha</h2>
+    <div class="contact-copy">
+      <header class="section-heading section-heading--left section-heading--compact">
+        <span class="section-eyebrow">Contact us</span>
+        <h2 class="section-title">Connect with HODL Alpha</h2>
+        <p class="section-summary">
+          Have questions about the membership, signals, or onboarding? Reach out and the team will
+          be in touch.
+        </p>
+      </header>
     </div>
-    <div>
-      <p class="muted" style="margin:0;">Reach us at support:</p>
-      <p style="margin:6px 0 0 0; font-size:1.25rem;">
+    <div class="contact-actions">
+      <p class="muted">Reach the support desk:</p>
+      <p class="contact-email">
         <a href="mailto:support@hodlalpha.io">support@hodlalpha.io</a>
       </p>
     </div>
@@ -28,9 +34,26 @@
     grid-template-columns: 1fr auto;
     align-items: center;
   }
+  .contact-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .contact-actions .muted {
+    margin: 0;
+  }
+  .contact-email {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
   @media (max-width: 900px) {
     .contact-grid {
       grid-template-columns: 1fr;
+    }
+    .contact-actions {
+      align-items: flex-start;
     }
   }
 </style>

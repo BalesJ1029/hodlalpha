@@ -3,14 +3,15 @@
 ---
 
 <section id="benefits" class="section">
-  <div class="container benefits-container">
-    <div class="badge section-badge">Membership Benefits</div>
-    <h2 class="h2">Why Smart Investors <br />Choose HODL Alpha</h2>
-    <p class="muted section-lead">
-      Transform your investment approach with our algorithmic buy alerts &amp; access to our open
-      HODL Alpha portfolio
-    </p>
-
+  <div class="container">
+    <header class="section-heading">
+      <span class="section-eyebrow">Membership Benefits</span>
+      <h2 class="section-title">Why Smart Investors <br />Choose HODL Alpha</h2>
+      <p class="section-summary">
+        Transform your investment approach with our algorithmic buy alerts &amp; access to our live
+        HODL Alpha portfolio.
+      </p>
+    </header>
     <div class="benefits">
       <article class="benefit">
         <div class="benefit-icn">
@@ -110,38 +111,13 @@
         </div>
       </article>
     </div>
+    <a href="/#pricing" class="btn btn--accent cta-banner__btn">Become a member — Join now</a>
   </div>
 </section>
 
 <style>
-  .benefits-container {
-    margin-top: -100px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .section-badge {
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    font-weight: 700;
-    color: var(--accent);
-    font-size: 0.75rem;
-    margin-bottom: 12px;
-  }
-  .benefits-container .h2 {
-    margin: 12px 0 0;
-    font-size: clamp(2.25rem, 3vw, 3.25rem);
-    letter-spacing: -0.02em;
-  }
-  .section-lead {
-    margin-top: 18px;
-    max-width: 720px;
-    font-size: 1.05rem;
-    line-height: 1.7;
-  }
   .benefits {
-    margin-top: clamp(32px, 5vw, 64px);
+    margin: clamp(28px, 4vw, 52px) auto 0;
     display: grid;
     grid-template-columns: 1fr;
     width: 100%;
@@ -184,6 +160,14 @@
   .benefit-copy {
     margin: 0;
     line-height: 1.7;
+  }
+  .btn {
+    display: block;
+    margin: 30px auto 0;
+    text-align: center;
+    width: auto;
+    padding: 0.9rem 1.6rem;
+    max-width: 400px;
   }
   @media (min-width: 720px) {
     .section-lead {

@@ -30,15 +30,16 @@ const faqs = [
 
 <section id="faq" class="section faq-section">
   <div class="container">
-    <div class="faq-header">
-      <h2 class="h2">
+    <header class="section-heading">
+      <span class="section-eyebrow">Membership FAQs</span>
+      <h2 class="section-title">
         Answers to your <span class="gradient-underline">most common questions</span>
       </h2>
-      <p class="muted">
+      <p class="section-summary">
         Understand exactly how membership works, how signals are delivered, and how you can
         integrate the strategies into your workflow.
       </p>
-    </div>
+    </header>
 
     <div class="faq-accordion">
       {
@@ -62,7 +63,6 @@ const faqs = [
   .faq-section {
     position: relative;
     overflow: hidden;
-    margin-top: -100px;
   }
   .faq-section::before {
     content: '';
@@ -74,14 +74,6 @@ const faqs = [
   .faq-section .container {
     position: relative;
     z-index: 1;
-  }
-  .faq-header {
-    text-align: center;
-    max-width: 720px;
-    margin: 0 auto clamp(36px, 4vw, 56px);
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
   }
   .faq-accordion {
     display: flex;
