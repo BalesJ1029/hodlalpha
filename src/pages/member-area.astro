@@ -1,8 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
-import RecommendationsTable from "../components/RecommendationsTable.astro";
-import { recommendations } from "../data/recommnedations";
+import RecommendationsTable from "../components/RecommendationsTable";
 
 // Where the form posts. Defaults to your production WP if .env is missing.
 const WP_URL = import.meta.env.PUBLIC_WP_URL ?? "https://hodlalpha.io";
@@ -12,7 +11,7 @@ const redirectTo = "/member-area/";
   <Header />
 
   <main class="mt-0">
-    <RecommendationsTable title="HODL Classic" rows={recommendations} />
+    <RecommendationsTable client:only="react" title="HODL Classic" />
   </main>
 
   <footer class="container" style="padding-block:56px;">
