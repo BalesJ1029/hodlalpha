@@ -4,66 +4,48 @@
 
 <section class="section">
   <div class="container">
-    <div class="vp-grid">
-      <div class="card vp-video">
-        <iframe
-          title="HODL Alpha overview"
-          width="100%"
-          height="100%"
-          src="https://www.youtube.com/embed/JmEoVDts7oY?start=378&rel=0&modestbranding=1"
-          allow="autoplay; encrypted-media; picture-in-picture"
-          allowfullscreen></iframe>
-      </div>
-
-      <div class="card card-accent">
-        <span class="section-eyebrow">Result-driven approach</span>
-        <p class="muted content">
-          We help Bitcoin HODLers maximize long-term returns by optimizing every buy entry. Instead
-          of changing your strategy, we enhance it by showing you when conviction is strongest so
-          your capital compounds more efficiently.
-        </p>
-      </div>
+    <div class="vp-video">
+      <iframe
+        title="HODL Alpha overview"
+        width="100%"
+        height="100%"
+        src="https://www.youtube.com/embed/JmEoVDts7oY?start=378&rel=0&modestbranding=1"
+        allow="autoplay; encrypted-media; picture-in-picture"
+        allowfullscreen
+      >
+      </iframe>
     </div>
   </div>
 </section>
 
 <style>
-  .vp-grid {
-    display: grid;
-    gap: clamp(16px, 2.5vw, 24px);
-    grid-template-columns: 1.2fr 1fr;
-    margin-top: clamp(24px, 3vw, 40px);
-  }
   .vp-video {
-    padding: 0;
-    overflow: hidden;
-    background: var(--surface);
-    min-height: 300px;
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
     max-width: 700px;
+    aspect-ratio: 16 / 9;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #000;
+    box-shadow:
+      0 0 20px rgba(241, 205, 112, 0.6),
+      0 0 40px rgba(241, 205, 112, 0.4),
+      0 0 60px rgba(241, 205, 112, 0.25);
+    transition: box-shadow 0.3s ease;
   }
+
+  .vp-video:hover {
+    box-shadow:
+      0 0 30px rgba(241, 205, 112, 0.8),
+      0 0 60px rgba(241, 205, 112, 0.5),
+      0 0 100px rgba(241, 205, 112, 0.3);
+  }
+
   .vp-video iframe {
     border: 0;
+    width: 100%;
+    height: 100%;
     display: block;
-  }
-  .card-accent {
-    border: 1px solid var(--border);
-    background:
-      linear-gradient(0deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.02)), var(--surface);
-    padding: clamp(24px, 3vw, 32px);
-    border-radius: var(--radius);
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: clamp(14px, 2vw, 20px);
-  }
-  @media (max-width: 1024px) {
-    .vp-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-  .content {
-    font-size: 1.275rem;
-    line-height: 1.6;
-    font-weight: 800;
   }
 </style>
