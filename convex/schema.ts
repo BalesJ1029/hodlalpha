@@ -6,7 +6,11 @@ export default defineSchema({
     asset: v.string(),
     entryDate: v.string(),
     entryPrice: v.number(),
-    currentPrice: v.optional(v.number()),
     alertType: v.string(),
   }).index('alertType', ['alertType']),
+  prices: defineTable({
+    asset: v.string(),
+    price: v.number(),
+    updatedAt: v.number(),
+  }).index('asset', ['asset']),
 });

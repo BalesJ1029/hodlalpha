@@ -56,7 +56,7 @@ const formatPercent = (entryPrice: number, currentPrice: number | null) => {
   return { label: `${sign}${pct.toFixed(1)}%`, className };
 };
 
-const computeRows = (alerts: Alert[] | undefined): ComputedRow[] | undefined => {
+const computeRows = (alerts: Alert[] | undefined, fallbackPrice: number | null): ComputedRow[] | undefined => {
   if (alerts === undefined) {
     return undefined;
   }
@@ -71,7 +71,8 @@ const computeRows = (alerts: Alert[] | undefined): ComputedRow[] | undefined => 
       return sortB - sortA;
     })
     .map((alert) => {
-      const currentPrice = typeof alert.currentPrice === 'number' ? alert.currentPrice : null;
+      const currentPrice =
+        typeof alert.currentPrice === 'number' ? alert.currentPrice : fallbackPrice;
       const { label: percentLabel, className: percentClassName } = formatPercent(
         alert.entryPrice,
         currentPrice
@@ -91,8 +92,10 @@ const computeRows = (alerts: Alert[] | undefined): ComputedRow[] | undefined => 
 
 const RecommendationsTableComponent: FunctionComponent<Props> = ({ title }) => {
   const alerts = useQuery(api.alerts.getClassicAlerts);
+  const priceInfo = useQuery(api.prices.getCurrentBtc);
+  const fallbackPrice = priceInfo?.price ?? null;
 
-  const rows = useMemo(() => computeRows(alerts), [alerts]);
+  const rows = useMemo(() => computeRows(alerts, fallbackPrice), [alerts, fallbackPrice]);
 
   return (
     <section className="wrap">

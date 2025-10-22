@@ -9,6 +9,8 @@
  */
 
 import type * as alerts from "../alerts.js";
+import type * as crons from "../crons.js";
+import type * as prices from "../prices.js";
 
 import type {
   ApiFromModules,
@@ -26,6 +28,8 @@ import type {
  */
 declare const fullApi: ApiFromModules<{
   alerts: typeof alerts;
+  crons: typeof crons;
+  prices: typeof prices;
 }>;
 declare const fullApiWithMounts: typeof fullApi;
 
